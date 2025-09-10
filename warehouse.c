@@ -59,15 +59,11 @@ int main(int argc, char **argv) {
 		int slot = findSlotforBin(bin);
 		
 		if (slot != -1){
-			printf("the bin is in the slot");
-			printf("\n");
 			lastUsed[slot] = time++;
 		}
 		else{
 		int insert = findEmptySpace();
 		if (insert == -1){
-			printf("we are evicting right now");
-			printf("\n");
 			int eviction_index = chooseEvictionSlot();
 			lastUsed[eviction_index] = time++;
 			fetchBin(bin,eviction_index);
@@ -75,9 +71,6 @@ int main(int argc, char **argv) {
 		else{
 				fetchBin(bin,insert);
 				lastUsed[insert] = time++;
-				printf("we are in the normal insert");
-					printf("\n");
-			
 		}
 		}
 		/* End of simple implementation */
